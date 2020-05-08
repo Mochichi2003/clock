@@ -44,11 +44,12 @@
 
 <body>
   <div id="app">
-    {{test}}
-    <h1>時計</h1>
-    <p>{{date}}</p>
-    {{clickHandler}}
-    {{tetstttt}}
+    <h2>{{now_date}}</h2>
+    <p>今日が始まってから経過したミリ秒 = {{elapsed_millisecond}}</p>
+    <p>今日が始まってから経過した秒 = {{elapsed_second}}</p>
+    <p>今日が始まってから経過した分 = {{elapsed_minute}}</p>
+    <p>今日が始まってから経過した時間 = {{elapsed_hour}}</p>
+    <p>今日が始まってから経過したミリ秒 = {{elapsed_millisecond}}</p>
     <input type="button" value="クリック!" v-on:click="clickHandler">
     <p>{{$data}}</p>
 
