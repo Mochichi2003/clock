@@ -45,11 +45,11 @@
 <body>
   <div id="app">
     <h2>{{now_date}}</h2>
-    <p>今日が始まってから経過したミリ秒 = {{elapsed_millisecond}}</p>
+    <!-- <p>今日が始まってから経過したミリ秒 = {{elapsed_millisecond}}</p>
     <p>今日が始まってから経過した秒 = {{elapsed_second}}</p>
     <p>今日が始まってから経過した分 = {{elapsed_minute}}</p>
     <p>今日が始まってから経過した時間 = {{elapsed_hour}}</p>
-    <p>今日が始まってから経過したミリ秒 = {{elapsed_millisecond}}</p>
+    <p>今日が始まってから経過したミリ秒 = {{elapsed_millisecond}}</p> -->
     <br>
     <br>
 
@@ -57,10 +57,10 @@
       秒針の角度 {{ second_hand_angle }}
     </p>
     <p>
-      秒針の角度 {{ minute_hand_angle }}
+      分針の角度 {{ minute_hand_angle }}
     </p>
     <p>
-      秒針の角度 {{ hour_hand_angle }}
+      時針の角度 {{ hour_hand_angle }}
     </p>
     <input type="button" value="クリック!" v-on:click="clickHandler">
     <p>{{$data}}</p>

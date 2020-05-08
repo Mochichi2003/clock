@@ -33,6 +33,7 @@ var vue = new Vue({
     },
   },
 });
+
 console.log(
   (new Date(new Date().toLocaleString({ timeZone: "Asia/Tokyo" })).getTime() %
     86400000) /
@@ -57,11 +58,21 @@ setInterval(() => {
   vue.elapsed_minute = Math.floor(vue.elapsed_second / 60);
   vue.elapsed_hour = Math.floor(vue.elapsed_minute / 60);
   // console.log(elapsed_millisecond);
-
+  // console.log(moment().millisecond()/1000 + moment().second())
   /**
    * アナログ時計の針の角度を計算しているところ
    */
-  
-}, 1);
+  //秒新の角度
+  vue.second_hand_angle =
+    Math.round(
+      ((moment().millisecond() / 1000 + moment().second()) / 60) * 360
+    ) ;
+  //分針の角度
+  vue.minute_hand_angle =
+    Math.round(((moment().minute() + moment().second() / 60) * 360) / 60) ;
+  //時針の角度
+  vue.hour_hand_angle =
+    Math.round((moment().minute() / 60 + moment().hour()) * 15) ;
+}, 33);
 
 console.log(moment().locale("ja").format("Y/M/d h:mm:ss a"));
