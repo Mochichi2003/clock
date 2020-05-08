@@ -7,6 +7,9 @@ var vue = new Vue({
     elapsed_second: null,
     elapsed_minute: null,
     elapsed_hour: null,
+    second_hand_angle: 0,
+    minute_hand_angle: 0,
+    hour_hand_angle: 0,
   },
   computed: {
     // tetstttt:setInterval(() => {
@@ -30,21 +33,35 @@ var vue = new Vue({
     },
   },
 });
-console.log(new Date(new Date().toLocaleString({ timeZone: 'Asia/Tokyo' })).getTime()%86400000/1000);
+console.log(
+  (new Date(new Date().toLocaleString({ timeZone: "Asia/Tokyo" })).getTime() %
+    86400000) /
+    1000
+);
+
+console.log(moment().millisecond() + "  ミリ秒"); //ミリ秒
+console.log(moment().second() + "  秒"); //秒
+console.log(moment().minute() + "  分"); //分
+console.log(moment().hours() + "  時間"); //分
 
 setInterval(() => {
   //時間をしていするところ
   // vue.elapsed_millisecond = moment().locale("ja").format("Y/M/d h:mm:ss a");
   // var now_time = new Date().getTime();
-  var now_time = moment()
-  now_time.utcOffset("+0900");
-  vue.now_date = now_time.toDate()
+  var now_time = moment();
+  vue.now_date = now_time.toDate();
+
   // vue.elapsed_millisecond = Date.parse(now_time) % 86400000;
   vue.elapsed_millisecond = now_time % 86400000;
   vue.elapsed_second = Math.floor(vue.elapsed_millisecond / 1000);
   vue.elapsed_minute = Math.floor(vue.elapsed_second / 60);
   vue.elapsed_hour = Math.floor(vue.elapsed_minute / 60);
   // console.log(elapsed_millisecond);
+
+  /**
+   * アナログ時計の針の角度を計算しているところ
+   */
+  
 }, 1);
 
 console.log(moment().locale("ja").format("Y/M/d h:mm:ss a"));
