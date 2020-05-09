@@ -5,6 +5,7 @@ body,
 html {
   margin: 0;
   padding: 0;
+  height: 100vh;
 }
 body {
   font-family: source-han-sans-japanese, sans-serif;
@@ -13,8 +14,11 @@ body {
 }
 .clock_image {
   position: relative;
+  max-width: 90vw;
+  margin: auto;
 }
 .clock_image img {
+  max-height: 90Vh;
   width: 100%;
   height: auto;
   position: absolute;
@@ -22,6 +26,7 @@ body {
   left: 0;
   width: 100%;
 }
+
 #app > div > img:nth-child(2) {
   /* 時針 */
   /* transform: rotate(160deg); */
