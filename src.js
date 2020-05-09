@@ -107,3 +107,5 @@ setInterval(() => {
 }, 13);
 
 console.log(moment().locale("ja").format("Y/M/d h:mm:ss a"));
+
+
