@@ -1,16 +1,13 @@
+var stop_watch_time = null
+
 var vue = new Vue({
   el: "#app",
   data: {
-    test: "あいう",
-    now_date: "2020/5/8 Fri 8:09:26",
-    elapsed_millisecond: null,
-    elapsed_second: null,
-    elapsed_minute: null,
-    elapsed_hour: null,
-
     second_hand_angle: 0,
     minute_hand_angle: 0,
     hour_hand_angle: 0,
+
+    stop_watch: null,
   },
   computed: {
     // tetstttt:setInterval(() => {
@@ -31,6 +28,21 @@ var vue = new Vue({
       }
 
       return setInterval(timeSetNow, 1000);
+    },
+  },
+
+  methods: {
+    start_and_stop_button: function () {
+      if (stop_watch_time == null) {
+        stop_watch_time = moment();
+      }else{
+        console.log(moment() - stop_watch_time);
+        
+      }
+
+      // console.log("押したよ");
+      this.stop_watch = moment();
+      console.log(moment());
     },
   },
 });
@@ -66,22 +78,32 @@ setInterval(() => {
   //秒新の角度
   vue.second_hand_angle =
     "rotate(" +
-    (((moment().millisecond() / 1000 + moment().second()) / 60) * 360 - 90) +
+    Math.round(
+      (((moment().millisecond() / 1000 + moment().second()) / 60) * 360 - 90) *
+        100
+    ) /
+      100 +
     "deg)";
   // console.log(((moment().millisecond() / 1000 + moment().second()) / 60) * 360 - 90);
 
   //分針の角度
   vue.minute_hand_angle =
     "rotate(" +
-    (((moment().minute() + moment().second() / 60) * 360) / 60 - 90) +
+    Math.round(
+      (((moment().minute() + moment().second() / 60) * 360) / 60 - 90) * 100
+    ) /
+      100 +
     "deg)";
   // console.log((((moment().minute() + moment().second() / 60) * 360) / 60)-90);
 
   //時針の角度
   vue.hour_hand_angle =
     "rotate(" +
-    ((moment().minute() / 60 + moment().hour()) * 15 * 2 - 90) +
+    Math.round(
+      ((moment().minute() / 60 + moment().hour()) * 15 * 2 - 90) * 100
+    ) /
+      100 +
     "deg)";
-}, 33);
+}, 16.66);
 
 console.log(moment().locale("ja").format("Y/M/d h:mm:ss a"));

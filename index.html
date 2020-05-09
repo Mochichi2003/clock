@@ -61,14 +61,10 @@
       <!-- <img src="時計-3-02.svg" alt="時針" v-bind:style="{transform :hour_hand_angle}"> -->
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" v-bind:style="{transform :hour_hand_angle}">
         <defs>
-          <style>
-            .b52463cb-68fc-4464-ad21-5ba14c651dc6 {
-              fill: #454c50;
-            }
-          </style>
+
         </defs>
         <g id="b7de61a7-9e5a-4f9b-88e9-56bfe9c73430" data-name="レイヤー 3">
-          <rect class="b52463cb-68fc-4464-ad21-5ba14c651dc6" x="512" y="485" width="299" height="54" rx="26.99997" />
+          <rect class="zisin" x="512" y="485" width="299" height="54" rx="26.99997" />
         </g>
       </svg>
       <!-- 時針 ここまで -->
@@ -77,14 +73,10 @@
       <!-- <img src="時計-3-03.svg" alt="分針" v-bind:style="{transform: minute_hand_angle}"> -->
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" v-bind:style="{transform: minute_hand_angle}">
         <defs>
-          <style>
-            .a0db5222-cd58-4cc9-b78f-28a7f40562de {
-              fill: #454c50;
-            }
-          </style>
+
         </defs>
         <g id="ae57f328-1498-42cc-9dc1-4f672f00e339" data-name="レイヤー 3">
-          <rect class="a0db5222-cd58-4cc9-b78f-28a7f40562de" x="512" y="498" width="371" height="28" rx="13.99999" />
+          <rect class="hunsun" x="512" y="498" width="371" height="28" rx="13.99999" />
         </g>
       </svg>
       <!-- 分針ここまで -->
@@ -94,31 +86,36 @@
       <!-- <img src="時計-3-04.svg" alt="秒針" v-bind:style="{transform : second_hand_angle}"> -->
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" v-bind:style="{transform : second_hand_angle}">
         <defs>
-          <style>
-            .beb10efc-114d-4f90-bdd7-6cb9d493db1f {
-              fill: #454c50;
-            }
-          </style>
+
         </defs>
         <g id="ac904f5e-192f-4436-b953-758f1c110298" data-name="レイヤー 3">
-          <rect class="beb10efc-114d-4f90-bdd7-6cb9d493db1f" x="512" y="504.1225" width="471" height="15.755"
-            rx="7.87749" />
+          <rect class="byousinn" x="512" y="504.1225" width="471" height="15.755" rx="7.87749" />
         </g>
       </svg>
       <!-- 秒針ここまで -->
 
     </div>
-    <div class="stop_watch" >
+
+    <!-- ここからストップウォッチの実装 -->
+    <div class="stop_watch">
       <h2>ストップウォッチ</h2>
-      <button id="start_and_stop_button">
+      <button id="start_and_stop_button" v-on:click="start_and_stop_button()">
         <i class="fas fa-stopwatch"></i>スタート
       </button>
-
+      <div class="stop_watch_log">
+        <p>
+          {{stop_watch}}
+        </p>
+      </div>
 
     </div>
+    <!-- <p>
+      {{$data}}<br>
+    </p> -->
+
   </div>
-  <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script> -->
   <script src="moment.js"></script>
   <script src="src.js"></script>
 </body>
