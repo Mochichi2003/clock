@@ -1,4 +1,4 @@
-var stop_watch_time = null
+var stop_watch_time = null;
 
 var vue = new Vue({
   el: "#app",
@@ -33,12 +33,12 @@ var vue = new Vue({
 
   methods: {
     start_and_stop_button: function () {
-      if (stop_watch_time == null) {
+      if (vue.stop_watch === null) {
         stop_watch_time = moment();
-      }else{
+      } else {
         console.log(moment() - stop_watch_time);
-        
       }
+      vue.stop_watch = vue.stop_watch + moment() - stop_watch_time;
 
       // console.log("押したよ");
       this.stop_watch = moment();
@@ -104,6 +104,6 @@ setInterval(() => {
     ) /
       100 +
     "deg)";
-}, 16.66);
+}, 13);
 
 console.log(moment().locale("ja").format("Y/M/d h:mm:ss a"));
