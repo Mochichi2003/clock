@@ -1,3 +1,6 @@
+[v-cloak] {
+  display: none;
+}
 body,
 html {
   margin: 0;
@@ -7,4 +10,27 @@ body {
   font-family: source-han-sans-japanese, sans-serif;
   font-weight: 400;
   font-style: normal;
+}
+.clock_image {
+  position: relative;
+}
+.clock_image img {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+#app > div > img:nth-child(2) {
+  /* 時針 */
+  /* transform: rotate(160deg); */
+}
+#app > div > img:nth-child(3) {
+  /* 分針 */
+  transform: rotate(25deg);
+}
+#app > div > img:nth-child(4) {
+  /* 秒針 */
+  transform: rotate(-90deg);
 }

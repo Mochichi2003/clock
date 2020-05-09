@@ -7,6 +7,7 @@ var vue = new Vue({
     elapsed_second: null,
     elapsed_minute: null,
     elapsed_hour: null,
+
     second_hand_angle: 0,
     minute_hand_angle: 0,
     hour_hand_angle: 0,
@@ -64,15 +65,23 @@ setInterval(() => {
    */
   //秒新の角度
   vue.second_hand_angle =
-    Math.round(
-      ((moment().millisecond() / 1000 + moment().second()) / 60) * 360
-    ) ;
+    "rotate(" +
+    (((moment().millisecond() / 1000 + moment().second()) / 60) * 360 - 90) +
+    "deg)";
+  // console.log(((moment().millisecond() / 1000 + moment().second()) / 60) * 360 - 90);
+
   //分針の角度
   vue.minute_hand_angle =
-    Math.round(((moment().minute() + moment().second() / 60) * 360) / 60) ;
+    "rotate(" +
+    (((moment().minute() + moment().second() / 60) * 360) / 60 - 90) +
+    "deg)";
+  // console.log((((moment().minute() + moment().second() / 60) * 360) / 60)-90);
+
   //時針の角度
   vue.hour_hand_angle =
-    Math.round((moment().minute() / 60 + moment().hour()) * 15) ;
+    "rotate(" +
+    ((moment().minute() / 60 + moment().hour()) * 15 * 2 - 90) +
+    "deg)";
 }, 33);
 
 console.log(moment().locale("ja").format("Y/M/d h:mm:ss a"));
