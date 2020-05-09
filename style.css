@@ -17,8 +17,9 @@ body {
   max-width: 90vw;
   margin: auto;
 }
-.clock_image img {
-  max-height: 90Vh;
+.clock_image img,
+.clock_image svg {
+  max-height: 90vh;
   width: 100%;
   height: auto;
   position: absolute;
@@ -38,4 +39,9 @@ body {
 #app > div > img:nth-child(4) {
   /* 秒針 */
   transform: rotate(-90deg);
+}
+.beb10efc-114d-4f90-bdd7-6cb9d493db1f,
+.a0db5222-cd58-4cc9-b78f-28a7f40562de,
+.b52463cb-68fc-4464-ad21-5ba14c651dc6 {
+  fill: #454c50;
 }
