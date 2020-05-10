@@ -36,7 +36,7 @@ body {
   border-radius: 100%;
   /* background-color: #e04a3669; */
   object-fit: contain;
-  transition: 1000ms linear;
+  /* transition: 1000ms linear; */
 }
 
 #app > div > img:nth-child(2) {

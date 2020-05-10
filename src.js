@@ -69,7 +69,22 @@ window.onload = () => {
       (((moment().millisecond() / 1000 + moment().second()) / 60) * 360 - 90) *
         100
     ) / 100;
-    console.log("second_hand_angle = "  + second_hand_angle);
+  console.log("second_hand_angle = " + second_hand_angle);
+
+  //分針のところ
+  minute_hand_angle =
+    Math.round(
+      (((moment().minute() + moment().second() / 60) * 360) / 60 - 90) * 100
+    ) / 100;
+  console.log("minute_hand_angle = " + minute_hand_angle);
+
+  //時針のところ
+  hour_hand_angle = 
+  Math.round(
+    ((moment().minute() / 60 + moment().hour()) * 15 * 2 - 90) * 100
+  ) /
+    100;
+    console.log("hour_hand_angle = " + hour_hand_angle);
     
 };
 
@@ -92,8 +107,8 @@ setInterval(() => {
    */
   //秒新の角度
   second_hand_angle += 6;
-  console.log(second_hand_angle);
-  
+  // console.log(second_hand_angle);
+
   vue.second__hand_angle_VueData =
     "rotate(" +
     // Math.round(
@@ -101,28 +116,37 @@ setInterval(() => {
     //     100
     // ) /
     //   100 +
-    + second_hand_angle + 
+    second_hand_angle + 
     "deg)";
 
   // console.log(((moment().millisecond() / 1000 + moment().second()) / 60) * 360 - 90);
 
   //分針の角度
+  minute_hand_angle = (Math.round(minute_hand_angle * 10) + 1) / 10
+  // minute_hand_angle += 0.1;
+  // console.log("minute_hand_angle = " + minute_hand_angle);
+
   vue.minute__hand_angle_VueData =
     "rotate(" +
-    Math.round(
-      (((moment().minute() + moment().second() / 60) * 360) / 60 - 90) * 100
-    ) /
-      100 +
+    // Math.round(
+    //   (((moment().minute() + moment().second() / 60) * 360) / 60 - 90) * 100
+    // ) /
+    //   100 +
+    minute_hand_angle +
     "deg)";
   // console.log((((moment().minute() + moment().second() / 60) * 360) / 60)-90);
 
   //時針の角度
+  hour_hand_angle +=  0.008333333333333
+  // console.log("hour_hand_angle = " + hour_hand_angle);
+  
   vue.hour__hand_angle_VueData =
     "rotate(" +
-    Math.round(
-      ((moment().minute() / 60 + moment().hour()) * 15 * 2 - 90) * 100
-    ) /
-      100 +
+    // Math.round(
+    //   ((moment().minute() / 60 + moment().hour()) * 15 * 2 - 90) * 100
+    // ) /
+    //   100 +
+    hour_hand_angle +
     "deg)";
 }, 1000);
 
