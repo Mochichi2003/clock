@@ -36,10 +36,9 @@ body {
   border-radius: 100%;
   /* background-color: #e04a3669; */
   object-fit: contain;
-  transition: 1000ms linear;
+  /* transition: 1000ms linear; */
 }
-#app > div > img:nth-child(4){
-
+#app > div > img:nth-child(4) {
 }
 
 #app > div > img:nth-child(2) {
@@ -59,7 +58,9 @@ body {
 .zisin {
   fill: #364857;
 }
-.clock_image svg {
+.clock_image img:nth-child(2),
+.clock_image img:nth-child(3),
+.clock_image img:nth-child(4) {
   filter: drop-shadow(0px 0px 3px #2c2c2cab);
 }
 .byousinn {

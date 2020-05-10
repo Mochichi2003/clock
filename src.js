@@ -111,12 +111,12 @@ setInterval(() => {
 
   vue.second__hand_angle_VueData =
     "rotate(" +
-    // Math.round(
-    //   (((moment().millisecond() / 1000 + moment().second()) / 60) * 360 - 90) *
-    //     100
-    // ) /
-    //   100 +
-    second_hand_angle + 
+    Math.round(
+      (((moment().millisecond() / 1000 + moment().second()) / 60) * 360 - 90) *
+        100
+    ) /
+      100 +
+    // second_hand_angle + 
     "deg)";
 
   // console.log(((moment().millisecond() / 1000 + moment().second()) / 60) * 360 - 90);
@@ -128,11 +128,11 @@ setInterval(() => {
 
   vue.minute__hand_angle_VueData =
     "rotate(" +
-    // Math.round(
-    //   (((moment().minute() + moment().second() / 60) * 360) / 60 - 90) * 100
-    // ) /
-    //   100 +
-    minute_hand_angle +
+    Math.round(
+      (((moment().minute() + moment().second() / 60) * 360) / 60 - 90) * 100
+    ) /
+      100 +
+    // minute_hand_angle +
     "deg)";
   // console.log((((moment().minute() + moment().second() / 60) * 360) / 60)-90);
 
@@ -142,11 +142,11 @@ setInterval(() => {
   
   vue.hour__hand_angle_VueData =
     "rotate(" +
-    // Math.round(
-    //   ((moment().minute() / 60 + moment().hour()) * 15 * 2 - 90) * 100
-    // ) /
-    //   100 +
-    hour_hand_angle +
+    Math.round(
+      ((moment().minute() / 60 + moment().hour()) * 15 * 2 - 90) * 100
+    ) /
+      100 +
+    // hour_hand_angle +
     "deg)";
 }, 1000);
 
