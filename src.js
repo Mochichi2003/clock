@@ -1,11 +1,14 @@
 var stop_watch_time = null;
+var second_hand_angle = null;
+var minute_hand_angle = null;
+var hour_hand_angle = null;
 
-var vue = new Vue({
+let vue = new Vue({
   el: "#app",
   data: {
-    second_hand_angle: 0,
-    minute_hand_angle: 0,
-    hour_hand_angle: 0,
+    second__hand_angle_VueData: 0,
+    minute__hand_angle_VueData: 0,
+    hour__hand_angle_VueData: 0,
 
     stop_watch: null,
   },
@@ -58,6 +61,18 @@ console.log(moment().second() + "  秒"); //秒
 console.log(moment().minute() + "  分"); //分
 console.log(moment().hours() + "  時間"); //分
 
+window.onload = () => {
+  console.log("起動しました");
+  //秒針のところ
+  second_hand_angle =
+    Math.round(
+      (((moment().millisecond() / 1000 + moment().second()) / 60) * 360 - 90) *
+        100
+    ) / 100;
+    console.log("second_hand_angle = "  + second_hand_angle);
+    
+};
+
 setInterval(() => {
   //時間をしていするところ
   // vue.elapsed_millisecond = moment().locale("ja").format("Y/M/d h:mm:ss a");
@@ -66,33 +81,33 @@ setInterval(() => {
   vue.now_date = now_time.toDate();
 
   // vue.elapsed_millisecond = Date.parse(now_time) % 86400000;
-  vue.elapsed_millisecond = now_time % 86400000;
-  vue.elapsed_second = Math.floor(vue.elapsed_millisecond / 1000);
-  vue.elapsed_minute = Math.floor(vue.elapsed_second / 60);
-  vue.elapsed_hour = Math.floor(vue.elapsed_minute / 60);
+  // vue.elapsed_millisecond = now_time % 86400000;
+  // vue.elapsed_second = Math.floor(vue.elapsed_millisecond / 1000);
+  // vue.elapsed_minute = Math.floor(vue.elapsed_second / 60);
+  // vue.elapsed_hour = Math.floor(vue.elapsed_minute / 60);
   // console.log(elapsed_millisecond);
   // console.log(moment().millisecond()/1000 + moment().second())
   /**
    * アナログ時計の針の角度を計算しているところ
    */
   //秒新の角度
-  vue.second_hand_angle =
+  second_hand_angle += 6;
+  console.log(second_hand_angle);
+  
+  vue.second__hand_angle_VueData =
     "rotate(" +
-    Math.round(
-      (((moment().millisecond() / 1000 + moment().second()) / 60 ) * 360 -
-        90) *
-        100
-    ) /
-      100 +
+    // Math.round(
+    //   (((moment().millisecond() / 1000 + moment().second()) / 60) * 360 - 90) *
+    //     100
+    // ) /
+    //   100 +
+    + second_hand_angle + 
     "deg)";
-  if ((Math.round(((moment().millisecond() / 1000 + moment().second() / 60 + 1) * 360 - 90 ) * 100 ) / 10) >= 269) {
-    console.log("もう少しで60秒");
-    
-  }
+
   // console.log(((moment().millisecond() / 1000 + moment().second()) / 60) * 360 - 90);
 
   //分針の角度
-  vue.minute_hand_angle =
+  vue.minute__hand_angle_VueData =
     "rotate(" +
     Math.round(
       (((moment().minute() + moment().second() / 60) * 360) / 60 - 90) * 100
@@ -102,7 +117,7 @@ setInterval(() => {
   // console.log((((moment().minute() + moment().second() / 60) * 360) / 60)-90);
 
   //時針の角度
-  vue.hour_hand_angle =
+  vue.hour__hand_angle_VueData =
     "rotate(" +
     Math.round(
       ((moment().minute() / 60 + moment().hour()) * 15 * 2 - 90) * 100
