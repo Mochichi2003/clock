@@ -79,11 +79,16 @@ setInterval(() => {
   vue.second_hand_angle =
     "rotate(" +
     Math.round(
-      (((moment().millisecond() / 1000 + moment().second()) / 60) * 360 - 90) *
+      (((moment().millisecond() / 1000 + moment().second()) / 60 ) * 360 -
+        90) *
         100
     ) /
       100 +
     "deg)";
+  if ((Math.round(((moment().millisecond() / 1000 + moment().second() / 60 + 1) * 360 - 90 ) * 100 ) / 10) >= 269) {
+    console.log("もう少しで60秒");
+    
+  }
   // console.log(((moment().millisecond() / 1000 + moment().second()) / 60) * 360 - 90);
 
   //分針の角度
@@ -104,8 +109,6 @@ setInterval(() => {
     ) /
       100 +
     "deg)";
-}, 13);
+}, 1000);
 
 console.log(moment().locale("ja").format("Y/M/d h:mm:ss a"));
-
-
